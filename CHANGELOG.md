@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.3] - 2025-01-14
+
+### Fixed
+- 텍스트 입력 영역이 실제로 확장되도록 수정
+- 글자수 카운터를 텍스트 영역 위로 이동
+- flex 레이아웃 개선으로 텍스트 영역이 남은 공간을 모두 차지하도록 수정
+
+### Changed
+- 글자수 카운터 위치 변경 (텍스트 영역 아래 → 위)
+- 텍스트 영역이 사용 가능한 전체 공간을 활용
+
 ## [1.4.2] - 2025-01-14
 
 ### Changed

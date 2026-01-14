@@ -82,6 +82,9 @@ class SummaryModal extends Modal {
     // 컨텐츠 래퍼 생성
     const contentWrapper = contentEl.createDiv('my-summary-content-wrapper');
 
+    // 글자수 카운터 생성 (텍스트 영역 위에 배치)
+    this.charCounter = contentWrapper.createDiv('my-summary-char-counter');
+
     // 텍스트 영역 컨테이너
     const textAreaContainer = contentWrapper.createDiv('my-summary-textarea-container');
     this.textArea = new TextAreaComponent(textAreaContainer);
@@ -89,8 +92,6 @@ class SummaryModal extends Modal {
     this.textArea.inputEl.placeholder = 'Enter your summary here...';
     this.textArea.setValue(this.existingSummary);
 
-    // 글자수 카운터 생성
-    this.charCounter = contentWrapper.createDiv('my-summary-char-counter');
     this.updateCharCounter();
 
     // 텍스트 입력 이벤트 리스너
