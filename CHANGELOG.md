@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-01-14
+
+### Added
+- 콜아웃 형식으로 요약 내용 저장 (가독성 향상)
+- 요약 섹션 후 구분선(---) 자동 추가
+- 스크롤 가능한 팝업창으로 긴 내용 편집 지원
+
+### Fixed
+- 팝업창 크기 문제 해결 (저장 버튼이 잘리는 문제 수정)
+- 모달 레이아웃 개선으로 안정적인 UI 제공
+
+### Changed
+- 팝업창 크기를 700px × 600px로 조정 (최대 90vw × 80vh)
+- 텍스트 영역이 자동으로 스크롤되도록 개선
+- 요약 내용이 콜아웃 박스 안에 표시되도록 변경
+
 ## [1.0.0] - 2025-01-14
 
 ### Added

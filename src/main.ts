@@ -78,8 +78,11 @@ class SummaryModal extends Modal {
     // 기존 요약 내용 가져오기
     await this.loadExistingSummary();
 
-    // 텍스트 영역 생성
-    const textAreaContainer = contentEl.createDiv();
+    // 컨텐츠 래퍼 생성
+    const contentWrapper = contentEl.createDiv('my-summary-content-wrapper');
+
+    // 텍스트 영역 컨테이너
+    const textAreaContainer = contentWrapper.createDiv('my-summary-textarea-container');
     this.textArea = new TextAreaComponent(textAreaContainer);
     this.textArea.inputEl.addClass('my-summary-textarea');
     this.textArea.inputEl.placeholder = 'Enter your summary here...';
@@ -131,10 +134,23 @@ class SummaryModal extends Modal {
       }
 
       // "## 0. My Summary" 섹션 찾기
-      const summaryMatch = contentWithoutFrontmatter.match(/^## 0\. My Summary\n([\s\S]*?)(?=\n## |$)/m);
+      const summaryMatch = contentWithoutFrontmatter.match(/^## 0\. My Summary\n([\s\S]*?)(?=\n---\n|$)/m);
 
       if (summaryMatch && summaryMatch[1]) {
-        this.existingSummary = summaryMatch[1].trim();
+        let summaryContent = summaryMatch[1].trim();
+
+        // 콜아웃 형식인 경우 내용 추출
+        const calloutMatch = summaryContent.match(/^>\s*\[!summary\]\s*\n((?:>\s*.*\n?)*)/m);
+        if (calloutMatch && calloutMatch[1]) {
+          // 콜아웃 내용에서 '> ' 제거
+          summaryContent = calloutMatch[1]
+            .split('\n')
+            .map(line => line.replace(/^>\s?/, ''))
+            .join('\n')
+            .trim();
+        }
+
+        this.existingSummary = summaryContent;
       }
     } catch (error) {
       console.error('Error loading existing summary:', error);
@@ -164,12 +180,23 @@ class SummaryModal extends Modal {
         }
       }
 
-      // 기존 "## 0. My Summary" 섹션 제거
-      const summaryRegex = /^## 0\. My Summary\n[\s\S]*?(?=\n## |$)/m;
+      // 기존 "## 0. My Summary" 섹션과 구분선 제거
+      const summaryRegex = /^## 0\. My Summary\n[\s\S]*?(?=\n---\n|$)/m;
       contentWithoutFrontmatter = contentWithoutFrontmatter.replace(summaryRegex, '').trim();
 
-      // 새로운 요약 섹션 생성
-      const newSummarySection = `## 0. My Summary\n\n${summaryText}\n`;
+      // 섹션 제거 후 남은 구분선도 제거
+      if (contentWithoutFrontmatter.startsWith('---\n')) {
+        contentWithoutFrontmatter = contentWithoutFrontmatter.substring(4).trim();
+      }
+
+      // 콜아웃 형식으로 요약 내용 포맷
+      const formattedSummary = summaryText
+        .split('\n')
+        .map(line => `> ${line}`)
+        .join('\n');
+
+      // 새로운 요약 섹션 생성 (콜아웃 형식 + 구분선)
+      const newSummarySection = `## 0. My Summary\n\n> [!summary]\n${formattedSummary}\n\n---`;
 
       // 최종 콘텐츠 조합
       let finalContent = frontmatter;
@@ -178,7 +205,7 @@ class SummaryModal extends Modal {
       }
       finalContent += newSummarySection;
       if (contentWithoutFrontmatter) {
-        finalContent += '\n' + contentWithoutFrontmatter;
+        finalContent += '\n\n' + contentWithoutFrontmatter;
       }
 
       // 파일에 저장

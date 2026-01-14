@@ -1,16 +1,38 @@
 /* My Summary Plugin Styles */
 
 .my-summary-modal {
-  width: 600px;
+  width: 700px;
+  max-width: 90vw;
+  height: 600px;
+  max-height: 80vh;
 }
 
 .my-summary-modal .modal-content {
   padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.my-summary-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.my-summary-textarea-container {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  margin-bottom: 15px;
 }
 
 .my-summary-textarea {
   width: 100%;
-  min-height: 300px;
+  min-height: 100%;
   padding: 10px;
   border: 1px solid var(--background-modifier-border);
   border-radius: 4px;
@@ -18,7 +40,7 @@
   color: var(--text-normal);
   font-family: var(--font-text);
   font-size: 14px;
-  resize: vertical;
+  resize: none;
 }
 
 .my-summary-textarea:focus {
@@ -30,7 +52,7 @@
   display: flex;
   gap: 10px;
   justify-content: flex-end;
-  margin-top: 15px;
+  flex-shrink: 0;
 }
 
 .my-summary-button {
