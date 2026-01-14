@@ -1,38 +1,50 @@
 /* My Summary Plugin Styles */
 
 .my-summary-modal {
-  width: 700px;
-  max-width: 90vw;
-  height: 600px;
-  max-height: 80vh;
+  width: 650px;
+  max-width: 85vw;
+}
+
+.my-summary-modal .modal {
+  width: 650px;
+  max-width: 85vw;
+  height: 550px;
+  max-height: 75vh;
 }
 
 .my-summary-modal .modal-content {
   padding: 20px;
-  height: 100%;
+  height: calc(100% - 40px);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+}
+
+.my-summary-modal h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .my-summary-content-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   min-height: 0;
+  overflow: hidden;
 }
 
 .my-summary-textarea-container {
   flex: 1;
-  overflow-y: auto;
-  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  max-height: 400px;
+  overflow: hidden;
   margin-bottom: 15px;
 }
 
 .my-summary-textarea {
-  width: 100%;
-  min-height: 100%;
+  width: calc(100% - 22px);
+  height: 100%;
   padding: 10px;
   border: 1px solid var(--background-modifier-border);
   border-radius: 4px;
@@ -41,6 +53,8 @@
   font-family: var(--font-text);
   font-size: 14px;
   resize: none;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .my-summary-textarea:focus {
@@ -53,6 +67,8 @@
   gap: 10px;
   justify-content: flex-end;
   flex-shrink: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--background-modifier-border);
 }
 
 .my-summary-button {

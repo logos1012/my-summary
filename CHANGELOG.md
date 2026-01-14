@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2025-01-14
+
+### Fixed
+- 텍스트 영역이 화면 밖으로 넘어가는 문제 완전 해결
+- 모달 창 크기를 650px × 550px로 재조정
+- 텍스트 영역의 너비 계산 방식 개선 (box-sizing 적용)
+- 버튼 영역과 텍스트 영역 간 명확한 구분선 추가
+
 ## [1.1.0] - 2025-01-14
 
 ### Added
