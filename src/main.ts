@@ -73,6 +73,9 @@ class SummaryModal extends Modal {
     contentEl.empty();
     contentEl.addClass('my-summary-modal');
 
+    // 모달 컨테이너 자체에 클래스 추가
+    this.modalEl.addClass('my-summary-modal');
+
     // 모달 제목
     contentEl.createEl('h2', { text: 'My Summary' });
 

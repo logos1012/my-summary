@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.3] - 2025-01-14
+
+### Fixed
+- 모달 컨테이너(modalEl)에 직접 클래스 추가하여 크기가 실제로 적용되도록 수정
+- TypeScript에서 this.modalEl.addClass() 추가
+- CSS 선택자 순서를 .modal.my-summary-modal로 변경
+- min-height: 600px 추가로 최소 크기 보장
+
+### Changed
+- 모달이 이제 실제로 화면의 90% 높이로 표시됨
+- 텍스트 입력 영역이 훨씬 넓어짐
+
 ## [1.5.2] - 2025-01-14
 
 ### Fixed
