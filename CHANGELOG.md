@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2] - 2025-01-14
+
+### Fixed
+- 모달 높이가 실제로 90vh로 적용되도록 CSS 특이성 강화 (!important 추가)
+- 텍스트 입력 영역이 모달의 전체 높이를 올바르게 차지하도록 수정
+- Obsidian의 기본 모달 스타일을 오버라이드하여 의도한 크기 강제 적용
+
+### Changed
+- CSS 선택자를 `.my-summary-modal.modal`로 변경하여 특이성 증가
+- modal-content 높이를 100%로 설정 (calc 제거)
+- 모든 크기 속성에 !important 플래그 추가
+
 ## [1.5.1] - 2025-01-14
 
 ### Fixed

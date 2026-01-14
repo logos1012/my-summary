@@ -1,27 +1,24 @@
 /* My Summary Plugin Styles */
 
-.my-summary-modal {
-  width: 500px;
-  max-width: 85vw;
-}
-
-.my-summary-modal .modal {
-  width: 500px;
-  max-width: 85vw;
-  height: 90vh;
-  max-height: 90vh;
+.my-summary-modal.modal {
+  width: 500px !important;
+  max-width: 85vw !important;
+  height: 90vh !important;
+  max-height: 90vh !important;
 }
 
 .my-summary-modal .modal-content {
   padding: 20px;
-  height: calc(100% - 40px);
+  height: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .my-summary-modal h2 {
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
 }
 
 .my-summary-content-wrapper {
