@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2025-01-14
+
+### Changed
+- 모달 높이를 적절한 크기로 조정: 90vh → 400px (max 60vh)
+- 최소 높이: 600px → 300px
+- 더 예쁘고 적절한 크기의 팝업창
+
+### Improved
+- UI 미적 개선
+- 적당한 크기의 입력 영역
+
 ## [1.5.3] - 2025-01-14
 
 ### Fixed
