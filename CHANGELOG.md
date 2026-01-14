@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2025-01-14
+
+### Added
+- 실시간 글자수 카운터 기능 추가
+- 글자수와 공백 제외 글자수를 동시에 표시
+
+### Changed
+- 텍스트 입력 영역 높이를 4배로 증가 (min-height: 500px)
+- 모달 창 높이를 700px로 확대 (max-height: 85vh)
+- 텍스트 영역의 스크롤 편의성 대폭 개선
+
+### Improved
+- 긴 요약 내용 작성 시 사용자 경험 향상
+- 실시간 피드백으로 작성 중인 요약 길이 확인 가능
+
 ## [1.3.0] - 2025-01-14
 
 ### Fixed

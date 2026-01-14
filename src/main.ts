@@ -59,6 +59,7 @@ class SummaryModal extends Modal {
   file: TFile;
   textArea: TextAreaComponent;
   existingSummary: string = '';
+  charCounter: HTMLElement;
 
   constructor(app: App, plugin: MySummaryPlugin, file: TFile) {
     super(app);
@@ -87,6 +88,15 @@ class SummaryModal extends Modal {
     this.textArea.inputEl.addClass('my-summary-textarea');
     this.textArea.inputEl.placeholder = 'Enter your summary here...';
     this.textArea.setValue(this.existingSummary);
+
+    // 글자수 카운터 생성
+    this.charCounter = contentWrapper.createDiv('my-summary-char-counter');
+    this.updateCharCounter();
+
+    // 텍스트 입력 이벤트 리스너
+    this.textArea.inputEl.addEventListener('input', () => {
+      this.updateCharCounter();
+    });
 
     // 버튼 컨테이너
     const buttonContainer = contentEl.createDiv('my-summary-button-container');
@@ -117,6 +127,14 @@ class SummaryModal extends Modal {
   onClose() {
     const { contentEl } = this;
     contentEl.empty();
+  }
+
+  // 글자수 업데이트
+  updateCharCounter() {
+    const text = this.textArea.getValue();
+    const charCount = text.length;
+    const charCountWithoutSpaces = text.replace(/\s/g, '').length;
+    this.charCounter.textContent = `${charCount}자 (공백 제외: ${charCountWithoutSpaces}자)`;
   }
 
   // 기존 요약 내용 로드

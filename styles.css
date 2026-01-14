@@ -1,15 +1,15 @@
 /* My Summary Plugin Styles */
 
 .my-summary-modal {
-  width: 500px;
-  max-width: 80vw;
+  width: 600px;
+  max-width: 85vw;
 }
 
 .my-summary-modal .modal {
-  width: 500px;
-  max-width: 80vw;
-  height: 500px;
-  max-height: 70vh;
+  width: 600px;
+  max-width: 85vw;
+  height: 700px;
+  max-height: 85vh;
 }
 
 .my-summary-modal .modal-content {
@@ -36,10 +36,10 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 250px;
-  max-height: 350px;
+  min-height: 500px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  position: relative;
 }
 
 .my-summary-textarea {
@@ -60,6 +60,14 @@
 .my-summary-textarea:focus {
   outline: none;
   border-color: var(--interactive-accent);
+}
+
+.my-summary-char-counter {
+  text-align: right;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  padding-right: 5px;
 }
 
 .my-summary-button-container {
