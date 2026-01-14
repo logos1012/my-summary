@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.3] - 2025-01-14
+
+### Fixed
+- 기존 요약 내용 불러오기 기능 수정
+- 콜아웃 형식으로 저장된 요약을 팝업창에서 정상적으로 표시
+- 기존 요약 내용을 수정할 수 있도록 파싱 로직 개선
+
 ## [1.1.2] - 2025-01-14
 
 ### Fixed

@@ -133,19 +133,19 @@ class SummaryModal extends Modal {
         }
       }
 
-      // "## 0. My Summary" 섹션 찾기
-      const summaryMatch = contentWithoutFrontmatter.match(/^## 0\. My Summary\n([\s\S]*?)(?=\n---\n|$)/m);
+      // "## 0. My Summary" 섹션 찾기 (구분선까지 포함)
+      const summaryMatch = contentWithoutFrontmatter.match(/^## 0\. My Summary\n([\s\S]*?)(?=\n---$|\n---\n|$)/m);
 
       if (summaryMatch && summaryMatch[1]) {
         let summaryContent = summaryMatch[1].trim();
 
         // 콜아웃 형식인 경우 내용 추출
-        const calloutMatch = summaryContent.match(/^>\s*\[!summary\]\s*\n((?:>\s*.*\n?)*)/m);
-        if (calloutMatch && calloutMatch[1]) {
-          // 콜아웃 내용에서 '> ' 제거
-          summaryContent = calloutMatch[1]
+        if (summaryContent.startsWith('> [!summary]')) {
+          // 콜아웃 헤더 제거하고 내용만 추출
+          summaryContent = summaryContent
+            .replace(/^>\s*\[!summary\]\s*\n?/, '') // 콜아웃 헤더 제거
             .split('\n')
-            .map(line => line.replace(/^>\s?/, ''))
+            .map(line => line.replace(/^>\s?/, '')) // 각 줄의 '> ' 제거
             .join('\n')
             .trim();
         }
