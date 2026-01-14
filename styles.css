@@ -1,0 +1,62 @@
+/* My Summary Plugin Styles */
+
+.my-summary-modal {
+  width: 600px;
+}
+
+.my-summary-modal .modal-content {
+  padding: 20px;
+}
+
+.my-summary-textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  font-family: var(--font-text);
+  font-size: 14px;
+  resize: vertical;
+}
+
+.my-summary-textarea:focus {
+  outline: none;
+  border-color: var(--interactive-accent);
+}
+
+.my-summary-button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.my-summary-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.my-summary-save-button {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
+}
+
+.my-summary-save-button:hover {
+  background-color: var(--interactive-accent-hover);
+}
+
+.my-summary-cancel-button {
+  background-color: var(--background-secondary);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.my-summary-cancel-button:hover {
+  background-color: var(--background-modifier-hover);
+}

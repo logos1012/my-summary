@@ -1,0 +1,21 @@
+{
+  "name": "my-summary",
+  "version": "1.0.0",
+  "description": "Obsidian plugin for creating and managing personal summaries based on Kim Ik-han's archiving methodology",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.js",
+    "build": "node esbuild.config.js production"
+  },
+  "keywords": ["obsidian", "plugin", "summary", "archiving"],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^25.0.8",
+    "esbuild": "^0.27.2",
+    "esbuild-plugin-copy": "^2.1.1",
+    "obsidian": "^1.11.4",
+    "typescript": "^5.9.3"
+  }
+}
