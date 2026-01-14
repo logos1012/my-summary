@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1] - 2025-01-14
+
+### Fixed
+- 가로 크기를 500px로 원상복구 (v1.5.0에서 과도하게 넓어진 문제 해결)
+- 세로 크기는 90vh 유지 (변경 없음)
+
 ## [1.5.0] - 2025-01-14
 
 ### Changed
