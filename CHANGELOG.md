@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2025-01-14
+
+### Changed
+- **팝업창 크기 대폭 증가**: 가로 80vw (최대 1200px), 세로 90vh
+- **텍스트 입력 영역 자동 확장**: 팝업창 크기에 맞춰 자동으로 확장
+- 긴 요약 작성 시 스크롤 없이 편안하게 작성 가능
+
+### Improved
+- 넓은 화면에서 더욱 편리한 작성 경험
+- 한눈에 더 많은 내용을 볼 수 있음
+
 ## [1.4.3] - 2025-01-14
 
 ### Fixed

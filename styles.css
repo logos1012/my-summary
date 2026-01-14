@@ -1,13 +1,13 @@
 /* My Summary Plugin Styles */
 
 .my-summary-modal {
-  width: 500px;
-  max-width: 85vw;
+  width: 80vw;
+  max-width: 1200px;
 }
 
 .my-summary-modal .modal {
-  width: 500px;
-  max-width: 85vw;
+  width: 80vw;
+  max-width: 1200px;
   height: 90vh;
   max-height: 90vh;
 }

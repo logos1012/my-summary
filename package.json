@@ -1,6 +1,6 @@
 {
   "name": "my-summary",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "Obsidian plugin for creating and managing personal summaries based on Kim Ik-han's archiving methodology",
   "main": "main.js",
   "scripts": {
