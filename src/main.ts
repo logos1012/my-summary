@@ -149,19 +149,28 @@ class SummaryModal extends Modal {
 
         // 콜아웃 형식인 경우 내용 추출
         if (summaryContent.includes('[!summary]')) {
-          // 먼저 콜아웃 헤더 라인 제거
           const lines = summaryContent.split('\n');
           const filteredLines = [];
+          let skipNext = false;
 
-          for (const line of lines) {
-            // [!summary] 라인은 건너뛰기
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+
+            // [!summary] 헤더 라인 건너뛰기
             if (line.includes('[!summary]')) {
+              skipNext = false;
               continue;
             }
-            // '> '로 시작하는 경우 제거
+
+            // '> '로 시작하는 경우 접두사 제거
             if (line.startsWith('>')) {
-              filteredLines.push(line.substring(1).trim());
-            } else {
+              // '> ' 또는 '>' 제거 후 내용 확인
+              const cleanedLine = line.replace(/^>\s?/, '');
+              if (cleanedLine.trim()) {
+                filteredLines.push(cleanedLine);
+              }
+            } else if (line.trim()) {
+              // 빈 줄이 아닌 경우만 추가
               filteredLines.push(line);
             }
           }
@@ -170,7 +179,11 @@ class SummaryModal extends Modal {
         }
 
         console.log('Parsed summary content:', summaryContent);
-        this.existingSummary = summaryContent;
+
+        // 내용이 있을 때만 설정
+        if (summaryContent) {
+          this.existingSummary = summaryContent;
+        }
       } else {
         console.log('No summary section found');
       }
