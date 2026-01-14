@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1] - 2025-01-14
+
+### Fixed
+- BRAT 호환성을 위한 버전 업데이트
+- 동일 기능, 새 릴리스 번호로 BRAT 인식 문제 해결
+
 ## [1.4.0] - 2025-01-14
 
 ### Added
