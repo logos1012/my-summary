@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] - 2025-01-14
+
+### Fixed
+- 모달 가로 너비를 500px로 축소하여 화면 적합성 개선
+- 텍스트 영역 너비를 100%로 설정 (box-sizing 활용)
+- 전체 모달 크기를 500px × 500px로 최적화
+
 ## [1.1.1] - 2025-01-14
 
 ### Fixed

@@ -1,15 +1,15 @@
 /* My Summary Plugin Styles */
 
 .my-summary-modal {
-  width: 650px;
-  max-width: 85vw;
+  width: 500px;
+  max-width: 80vw;
 }
 
 .my-summary-modal .modal {
-  width: 650px;
-  max-width: 85vw;
-  height: 550px;
-  max-height: 75vh;
+  width: 500px;
+  max-width: 80vw;
+  height: 500px;
+  max-height: 70vh;
 }
 
 .my-summary-modal .modal-content {
@@ -36,14 +36,14 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
-  max-height: 400px;
+  min-height: 250px;
+  max-height: 350px;
   overflow: hidden;
   margin-bottom: 15px;
 }
 
 .my-summary-textarea {
-  width: calc(100% - 22px);
+  width: 100%;
   height: 100%;
   padding: 10px;
   border: 1px solid var(--background-modifier-border);
