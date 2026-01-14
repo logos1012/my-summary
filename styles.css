@@ -1,12 +1,12 @@
 /* My Summary Plugin Styles */
 
 .my-summary-modal {
-  width: 600px;
+  width: 500px;
   max-width: 85vw;
 }
 
 .my-summary-modal .modal {
-  width: 600px;
+  width: 500px;
   max-width: 85vw;
   height: 700px;
   max-height: 85vh;
