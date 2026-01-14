@@ -124,6 +124,9 @@ class SummaryModal extends Modal {
     try {
       const content = await this.app.vault.read(this.file);
 
+      // 디버그 로그
+      console.log('Loading existing summary from file:', this.file.path);
+
       // 프론트매터가 있는지 확인
       let contentWithoutFrontmatter = content;
       if (content.startsWith('---\n')) {
@@ -133,24 +136,43 @@ class SummaryModal extends Modal {
         }
       }
 
-      // "## 0. My Summary" 섹션 찾기 (구분선까지 포함)
-      const summaryMatch = contentWithoutFrontmatter.match(/^## 0\. My Summary\n([\s\S]*?)(?=\n---$|\n---\n|$)/m);
+      // "## 0. My Summary" 섹션 찾기
+      // 구분선(---)이 있거나 다음 섹션(##)이 있거나 파일 끝까지
+      const summaryRegex = /^## 0\. My Summary\s*\n([\s\S]*?)(?=\n---|\n##|$)/m;
+      const summaryMatch = contentWithoutFrontmatter.match(summaryRegex);
+
+      console.log('Summary match found:', !!summaryMatch);
 
       if (summaryMatch && summaryMatch[1]) {
         let summaryContent = summaryMatch[1].trim();
+        console.log('Raw summary content:', summaryContent);
 
         // 콜아웃 형식인 경우 내용 추출
-        if (summaryContent.startsWith('> [!summary]')) {
-          // 콜아웃 헤더 제거하고 내용만 추출
-          summaryContent = summaryContent
-            .replace(/^>\s*\[!summary\]\s*\n?/, '') // 콜아웃 헤더 제거
-            .split('\n')
-            .map(line => line.replace(/^>\s?/, '')) // 각 줄의 '> ' 제거
-            .join('\n')
-            .trim();
+        if (summaryContent.includes('[!summary]')) {
+          // 먼저 콜아웃 헤더 라인 제거
+          const lines = summaryContent.split('\n');
+          const filteredLines = [];
+
+          for (const line of lines) {
+            // [!summary] 라인은 건너뛰기
+            if (line.includes('[!summary]')) {
+              continue;
+            }
+            // '> '로 시작하는 경우 제거
+            if (line.startsWith('>')) {
+              filteredLines.push(line.substring(1).trim());
+            } else {
+              filteredLines.push(line);
+            }
+          }
+
+          summaryContent = filteredLines.join('\n').trim();
         }
 
+        console.log('Parsed summary content:', summaryContent);
         this.existingSummary = summaryContent;
+      } else {
+        console.log('No summary section found');
       }
     } catch (error) {
       console.error('Error loading existing summary:', error);

@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-01-14
+
+### Fixed
+- 콜아웃 형식 파싱 완전 재작성
+- 정규식 패턴 개선으로 안정적인 요약 섹션 감지
+- '> ' 접두사 제거 로직 수정
+- 디버그 로깅 추가로 문제 진단 가능
+
+### Changed
+- loadExistingSummary 메서드 완전 개편
+- 라인별 처리 방식으로 변경하여 정확도 향상
+
 ## [1.1.3] - 2025-01-14
 
 ### Fixed
