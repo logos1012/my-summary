@@ -137,8 +137,8 @@ class SummaryModal extends Modal {
       }
 
       // "## 0. My Summary" 섹션 찾기
-      // 구분선(---)이 있거나 다음 섹션(##)이 있거나 파일 끝까지
-      const summaryRegex = /^## 0\. My Summary\s*\n([\s\S]*?)(?=\n---|\n##|$)/m;
+      // 첫 번째 구분선까지만 읽기 (구분선은 항상 요약 끝에 있음)
+      const summaryRegex = /^## 0\. My Summary\s*\n([\s\S]*?)(?:\n---)/m;
       const summaryMatch = contentWithoutFrontmatter.match(summaryRegex);
 
       console.log('Summary match found:', !!summaryMatch);
@@ -215,14 +215,9 @@ class SummaryModal extends Modal {
         }
       }
 
-      // 기존 "## 0. My Summary" 섹션과 구분선 제거
-      const summaryRegex = /^## 0\. My Summary\n[\s\S]*?(?=\n---\n|$)/m;
+      // 기존 "## 0. My Summary" 섹션과 첫 번째 구분선까지 완전히 제거
+      const summaryRegex = /^## 0\. My Summary[\s\S]*?\n---/m;
       contentWithoutFrontmatter = contentWithoutFrontmatter.replace(summaryRegex, '').trim();
-
-      // 섹션 제거 후 남은 구분선도 제거
-      if (contentWithoutFrontmatter.startsWith('---\n')) {
-        contentWithoutFrontmatter = contentWithoutFrontmatter.substring(4).trim();
-      }
 
       // 콜아웃 형식으로 요약 내용 포맷
       const formattedSummary = summaryText
