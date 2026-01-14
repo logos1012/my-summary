@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.2] - 2025-01-14
+
+### Changed
+- 모달 창 높이를 화면의 90%로 대폭 증가 (90vh)
+- 텍스트 입력 영역이 모달 크기에 맞춰 자동으로 최대한 확장
+- 스크롤바 없이 더 많은 내용을 한눈에 볼 수 있도록 개선
+
+### Improved
+- 긴 요약 작성 시 스크롤 없이 편안하게 작성 가능
+- 화면 크기에 따라 유동적으로 조절되는 반응형 디자인
+
 ## [1.4.1] - 2025-01-14
 
 ### Fixed
